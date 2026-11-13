@@ -59,7 +59,7 @@ python -m src.ingestion.count_messages outputs/topic1_capture.jsonl --output evi
 ## 5. entity stream (Tulasi)
 `[TULASI: command for src/streaming/entity_stream.py]`
 
-## 6. Logstash / Elasticsearch / Kibana (Anthika)
+## 6. Logstash / Elasticsearch / Kibana (Ashi)
 `[ANTHIKA: compose services, pipeline.conf, Kibana steps]`
 
 ## 7. classification (Sristi)
