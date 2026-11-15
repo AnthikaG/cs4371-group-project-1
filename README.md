@@ -1,6 +1,6 @@
 # CS4371 Group Project 1: Spark Streaming with Kafka + Text Classification
 
-Team: `[TEAM NUMBER]`, Ashi, Tulasi, Anthika, Sristi. See `contract.md` for the shared interfaces.
+Team: `8`, Ashi, Tulasi, Anthika, Sristi. See `contract.md` for the shared interfaces.
 
 ```
 live source (Bluesky Jetstream) -> producer.py -> Kafka topic1
