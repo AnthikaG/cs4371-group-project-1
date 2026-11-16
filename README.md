@@ -57,7 +57,45 @@ python -m src.ingestion.count_messages outputs/topic1_capture.jsonl --output evi
 ```
 
 ## 5. entity stream (Tulasi)
-`[TULASI: command for src/streaming/entity_stream.py]`
+Use Python 3.11 and Java 17 in WSL/Linux/macOS. The normal requirements file includes
+spaCy and its trained English model. Start Kafka and create `topic1`/`topic2` as above.
+
+```bash
+python -m src.streaming.entity_stream --checkpoint-dir checkpoints/entities
+```
+
+The query reads `topic1`, filters invalid messages, extracts entities with spaCy,
+and uses Spark `groupBy`/`count` to maintain cumulative totals. Every 10 seconds with
+new input, it publishes a complete snapshot to `topic2`. Names are lowercased with
+Unicode casefolding and extra whitespace is removed; entity types remain separate.
+Every recognized mention counts, including repeated mentions and all spaCy entity types.
+
+Restart with the same checkpoint directory to continue the same run. To start a new
+run, use a new directory; its run ID is generated automatically. Keep `run.json` and
+the `spark/` directory together. Kafka publishing is at least once, so consumers must
+upsert the latest count for `(run_id, entity_type, entity)` rather than sum snapshots.
+Kafka keys identify that combination. This simple version does not deduplicate new
+Kafka records by `message_id`: replaying a message adds its mentions again.
+
+Check the output:
+
+```bash
+docker exec kafka /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic2 --from-beginning --max-messages 5
+```
+
+`--trigger-seconds`, `--max-offsets-per-trigger`, `--bootstrap-servers`, `--input-topic`
+and `--output-topic` are configurable. `--available-now` processes current input and exits.
+The matching connector is `org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.3`, loaded
+by the shared Spark helper. Equivalent explicit launch:
+
+```bash
+spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.3 src/streaming/entity_stream.py --checkpoint-dir checkpoints/entities
+```
+
+Sristi can call `start_entity_query(spark, args)` with the shared Spark session, then
+start her independent classification query on `topic1` with a separate checkpoint.
+Stop both queries before stopping the shared session. Verified results and limitations
+are in `evidence/tulasi_results.json`; the output sample is `data/sample/topic2_sample.jsonl`.
 
 ## 6. Logstash / Elasticsearch / Kibana (Ashi)
 `[ANTHIKA: compose services, pipeline.conf, Kibana steps]`
