@@ -1,6 +1,10 @@
-# single-node kafka in kraft mode (no zookeeper)
-# host programs (producer, spark) use localhost:9092
-# other containers (e.g. logstash) use kafka:29092
+
+# CS4371 Group Project 1
+# Kafka + Elasticsearch + Kibana + Logstash
+#
+# Host applications (producer, Spark) connect to localhost:9092
+# Docker containers (Logstash) connect to kafka:29092
+
 services:
   kafka:
     image: apache/kafka:3.8.0
@@ -22,7 +26,57 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_NUM_PARTITIONS: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
-      # keep topic1 long enough for the part 2 batch read
       KAFKA_LOG_RETENTION_HOURS: 336
 
-  # anthika adds logstash / elasticsearch / kibana services here on her branch
+  # Elasticsearch stores named-entity counts from Kafka topic2
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.3
+    container_name: cs4371-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:9200/_cluster/health > /dev/null"]
+      interval: 15s
+      timeout: 10s
+      retries: 15
+
+  # Kibana visualizes the top 10 named entities
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.17.3
+    container_name: cs4371-kibana
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+      XPACK_SECURITY_ENABLED: "false"
+      NODE_OPTIONS: "--max-old-space-size=512"
+    ports:
+      - "5601:5601"
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+
+  # Logstash reads topic2 and sends data to Elasticsearch
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.17.3
+    container_name: cs4371-logstash
+    environment:
+      LS_JAVA_OPTS: "-Xms256m -Xmx256m"
+      XPACK_MONITORING_ENABLED: "false"
+      PIPELINE_WORKERS: "1"
+      PIPELINE_ORDERED: "true"
+    volumes:
+      - ./infrastructure/logstash/pipeline.conf:/usr/share/logstash/pipeline/logstash.conf:ro
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+      kafka:
+        condition: service_started
+
+# Persistent storage for Elasticsearch
+volumes:
+  elasticsearch_data:
