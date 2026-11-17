@@ -8,7 +8,7 @@ from typing import Optional
 from config.settings import get_settings
 from src.common.schemas import AG_NEWS_LABELS
 from src.common.spark_utils import build_spark_session
-
+from pyspark.ml.functions import vector_to_array
 
 def parse_args(argv: Optional[list[str]] = None) -> argparse.Namespace:
     settings = get_settings()
@@ -99,7 +99,7 @@ def main(argv: Optional[list[str]] = None) -> int:
                     ],
                 )[F.col("prediction")],
             )
-            .withColumn("confidence", F.array_max("probability"))
+            .withColumn("confidence", F.array_max(vector_to_array("probability")))
             .select(
                 F.col("message_id").cast("string"),
                 F.col("text").cast("string"),
