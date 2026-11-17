@@ -74,20 +74,24 @@ Five rows per class as printed by `batch_predict`, with the model's confidence (
 
 ## 50 hand-label results
 
-- Label provenance: AI-generated suggestions, not independent human labels; this accuracy is not a human-label evaluation.
-- Number labeled `None of these`: 38
-- Number in-scope: 12
-- Accuracy on in-scope labels only: 0.500000
-- Wrong in-scope labels and comparison file: 6; [hand_labels_vs_model.csv](../../outputs/hand_labels_vs_model.csv)
+- Evaluation input: the 50-row `outputs/label_sheet_manual.csv`; comparison output: [hand_labels_vs_model_manual.csv](../../outputs/hand_labels_vs_model_manual.csv).
+- Number labeled `None of these`: 35
+- Number in-scope: 15
+- Correct in-scope predictions: 2 of 15
+- Accuracy on in-scope labels only: 0.133333
+- Wrong in-scope labels: 13
 
 ## Live classification query + screenshot
 
-- Query start time and run/checkpoint details: <FILL FROM OUTPUT>
-- Per-class counts observed: <FILL FROM OUTPUT>
-- Screenshot path: <FILL FROM OUTPUT>
+- Query start time and run/checkpoint details: Skipped; the local live-classifier query was not run. Kafka startup and topic creation were checked, but no messages were classified in a live query.
+- Per-class counts observed: Not available; the live query was skipped.
+- Screenshot path: None; no screenshot was captured.
 
 ## Summary
 
-- Do predictions make sense for Bluesky? <FILL FROM OUTPUT>
-- Which messages are handled well or badly, and why? <FILL FROM OUTPUT>
-- Three to five actual wrong examples from the hand-label results: <FILL FROM OUTPUT>
+- In this 50-row sample, 35 labels were `None of these`, which the four-class model cannot predict. Of the 15 in-scope labels, 2 predictions were correct (0.133333 accuracy). This sample indicates poor performance on these messages; it is not enough to generalize to all Bluesky posts.
+- The two correct in-scope predictions were one Sci/Tech item and one Sports item about CFL rule changes. The 13 incorrect in-scope rows include short, context-poor posts and political or advocacy text, which do not consistently fit the AG News categories. These are observations from this sample, not proof of a specific cause.
+- Three wrong in-scope examples copied from the comparison output:
+  1. “Ummm, I think you just did! 🤔😂” — my_label: World; predicted_class: Business.
+  2. “3 fun facts about CF Richmond Centre's massive Christmas Tree” — my_label: Business; predicted_class: Sci/Tech.
+  3. “Housing and Consumer Advocacy: Fought against housing instability, protesting the expiration of federal COVID-19 eviction moratoriums and championing renter resource and housing access bills. That's it for now- I want others to do the research too and see what a great patriot she is!!” — my_label: World; predicted_class: Sci/Tech.
