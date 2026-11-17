@@ -74,10 +74,11 @@ Five rows per class as printed by `batch_predict`, with the model's confidence (
 
 ## 50 hand-label results
 
-- Number labeled `None of these`: <FILL FROM OUTPUT>
-- Number in-scope: <FILL FROM OUTPUT>
-- Accuracy on in-scope labels only: <FILL FROM OUTPUT>
-- Wrong in-scope labels and comparison file: <FILL FROM OUTPUT>
+- Label provenance: AI-generated suggestions, not independent human labels; this accuracy is not a human-label evaluation.
+- Number labeled `None of these`: 38
+- Number in-scope: 12
+- Accuracy on in-scope labels only: 0.500000
+- Wrong in-scope labels and comparison file: 6; [hand_labels_vs_model.csv](../../outputs/hand_labels_vs_model.csv)
 
 ## Live classification query + screenshot
 

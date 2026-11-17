@@ -86,10 +86,11 @@ Run these commands from the repository root, in order. Replace each angle-bracke
    python -m src.part2.batch_predict --source kafka --bootstrap-servers localhost:9092 --input-topic topic1 --model-path <MODEL_DIR> --output-csv-path <PREDICTIONS_CSV>
    ```
 
-3. Make the blind 50-message label sheet, fill `my_label` yourself using `World`, `Sports`, `Business`, `Sci/Tech`, or `None of these`, then evaluate:
+3. Make the blind 50-message label sheet, use the interactive CLI to fill `my_label` yourself using `World`, `Sports`, `Business`, `Sci/Tech`, or `None of these`, then evaluate:
 
    ```bash
    python -m src.part2.make_label_sheet <PREDICTIONS_CSV> <LABEL_SHEET_CSV>
+   python -m src.part2.label_cli <LABEL_SHEET_CSV>
    python -m src.part2.evaluate_labels <PREDICTIONS_CSV> <COMPLETED_LABEL_SHEET_CSV> <HAND_LABELS_VS_MODEL_CSV>
    ```
 
