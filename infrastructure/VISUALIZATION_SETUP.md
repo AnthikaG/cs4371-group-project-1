@@ -100,3 +100,33 @@ The final group demonstration should use the team's intended input data source a
 - Elasticsearch document upserts prevent duplicate documents for repeated snapshots of the same entity and run.
 - Delayed or out-of-order snapshots may still require additional handling.
 - Do not delete Spark checkpoints when restarting an existing run.
+
+## Interval screenshots
+
+Install Playwright and its headless Chromium browser in the Python environment used to run the capture script:
+
+```bash
+pip install playwright
+playwright install chromium
+```
+
+The dashboard URL, Elasticsearch URL, and output directory are supplied as command-line arguments or environment variables. Kibana and Elasticsearch must be reachable before capture. The default schedule is 15, 30, 45, and 60 minutes after the script starts:
+
+```bash
+python scripts/capture_kibana_intervals.py \
+  --dashboard-url <KIBANA_DASHBOARD_URL> \
+  --elasticsearch-url <ELASTICSEARCH_URL> \
+  --output-dir <INTERVAL_OUTPUT_DIR>
+```
+
+Take an immediate one-shot screenshot to check browser and service connectivity before the timed run:
+
+```bash
+python scripts/capture_kibana_intervals.py \
+  --dashboard-url <KIBANA_DASHBOARD_URL> \
+  --elasticsearch-url <ELASTICSEARCH_URL> \
+  --output-dir <TEST_OUTPUT_DIR> \
+  --test
+```
+
+Use a different output directory for the timed run; existing screenshots and CSVs are not overwritten. Each capture writes a timestamped `run_log.txt`, `top10_<N>min.png`, and `top10_<N>min.csv`. The saved dashboard currently has no run-ID filter, so filter its Kibana search bar to the actual Spark `run_id` before the run.

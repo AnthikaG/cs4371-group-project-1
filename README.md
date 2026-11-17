@@ -62,8 +62,46 @@ python -m src.ingestion.count_messages outputs/topic1_capture.jsonl --output evi
 ## 6. Logstash / Elasticsearch / Kibana (Ashi)
 `[ANTHIKA: compose services, pipeline.conf, Kibana steps]`
 
-## 7. classification (Sristi)
-`[SRISTI: train.py, batch_predict.py, manual_review.py, classification_stream.py commands]`
+## 7. Part 2: AG News text classification (Sristi)
+
+The [AG News dataset card](https://huggingface.co/datasets/fancyzhx/ag_news) confirms the four-class mapping: `0=World`, `1=Sports`, `2=Business`, `3=Sci/Tech`. The trainer prints the observed class counts and a fixed-seed 10% holdout accuracy; fill report values from the actual output.
+
+Run these commands from the repository root, in order. Replace each angle-bracket placeholder with your own path. The Kafka connector coordinate for this repo's PySpark 3.5.3 / Scala 2.12 build is `org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.3`.
+
+1. Train and save the PipelineModel:
+
+   ```bash
+   python -m src.part2.train_model <AG_NEWS_PARQUET> <MODEL_DIR>
+   ```
+
+2. Clean and classify the captured topic1 JSONL:
+
+   ```bash
+   python -m src.part2.batch_predict <CAPTURE_JSONL> <MODEL_DIR> <PREDICTIONS_CSV>
+   ```
+
+   To read topic1 directly instead, omit the JSONL positional argument and select Kafka:
+
+   ```bash
+   python -m src.part2.batch_predict --source kafka --bootstrap-servers localhost:9092 --input-topic topic1 --model-path <MODEL_DIR> --output-csv-path <PREDICTIONS_CSV>
+   ```
+
+3. Make the blind 50-message label sheet, fill `my_label` yourself using `World`, `Sports`, `Business`, `Sci/Tech`, or `None of these`, then evaluate:
+
+   ```bash
+   python -m src.part2.make_label_sheet <PREDICTIONS_CSV> <LABEL_SHEET_CSV>
+   python -m src.part2.evaluate_labels <PREDICTIONS_CSV> <COMPLETED_LABEL_SHEET_CSV> <HAND_LABELS_VS_MODEL_CSV>
+   ```
+
+4. Start the independent live classification stream. It prints per-class running counts every 30 seconds; use a new checkpoint path for a new run:
+
+   ```bash
+   spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.3 src/part2/stream_classify.py --bootstrap-servers localhost:9092 --input-topic topic1 --model-path <MODEL_DIR> --checkpoint-dir <CHECKPOINT_DIR>
+   ```
+
+   For a one-off query, `--checkpoint-dir` may be omitted. The optional topic3 sink is commented in the script because it needs coordination with the entity-stream owner.
+
+See [src/part2/REPORT_NOTES.md](src/part2/REPORT_NOTES.md) for the report skeleton and [RUNBOOK_60MIN.md](RUNBOOK_60MIN.md) for the coordinated live run.
 
 ## 8. tests
 ```bash
