@@ -1,0 +1,18 @@
+{
+  "input": "outputs/demo-live.jsonl",
+  "raw_messages": 4394,
+  "cleaned_messages": 4335,
+  "removed_duplicate_texts": 59,
+  "prediction_rows": 4335,
+  "predicted_probability_column": "confidence",
+  "class_counts": {
+    "Business": 1351,
+    "Sci/Tech": 1793,
+    "World": 524,
+    "Sports": 667
+  },
+  "model": "models/ag_lr",
+  "model_uid": "PipelineModel_2c1b1578a384",
+  "model_metadata_sha256": "234dca125c585d3c4b7377ab211176aaa0e4634f008a8f8051984176baeb68f9",
+  "manual_evaluation": "outputs/manual_evaluation_summary.json describes the original report sample, not this new inference dataset"
+}

@@ -1,0 +1,39 @@
+{
+  "same_saved_model": "models/ag_lr",
+  "input_topic": "topic1",
+  "trigger_seconds": 30,
+  "test_method": "Six previously collected real Bluesky messages replayed to Kafka at five-second intervals; these are replay records, not six newly collected posts",
+  "batch_counts": [
+    {
+      "batch_id": 0,
+      "class_counts": {
+        "Business": 1428,
+        "World": 543,
+        "Sci/Tech": 1876,
+        "Sports": 693
+      },
+      "total": 4540
+    },
+    {
+      "batch_id": 1,
+      "class_counts": {
+        "Business": 1429,
+        "World": 543,
+        "Sci/Tech": 1879,
+        "Sports": 693
+      },
+      "total": 4544
+    },
+    {
+      "batch_id": 2,
+      "class_counts": {
+        "Business": 1430,
+        "World": 543,
+        "Sci/Tech": 1880,
+        "Sports": 693
+      },
+      "total": 4546
+    }
+  ],
+  "updating_counts_verified": true
+}

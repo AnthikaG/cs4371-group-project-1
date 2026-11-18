@@ -1,0 +1,58 @@
+{
+  "run_id": "ashi-demo-20261117-180931",
+  "source": "retained real topic2 records; retrospective plots, not contemporaneous dashboard screenshots",
+  "topic": "topic2",
+  "partition": 0,
+  "starting_offset": 0,
+  "ending_offset_exclusive": 832858,
+  "records_scanned": 832858,
+  "first_snapshot_time": "2026-11-18T00:10:15.407906+00:00",
+  "snapshot_count": 358,
+  "intervals": [
+    {
+      "as_of_minutes": 15,
+      "target_time": "2026-11-18T00:25:15.407906+00:00",
+      "selected_snapshot_elapsed_seconds": 895.709381,
+      "window_end": "2026-11-18T00:25:11.117287Z",
+      "first_kafka_offset": 74802,
+      "last_kafka_offset": 76207,
+      "entity_type_pairs": 1406,
+      "entity_mentions": 1829
+    },
+    {
+      "as_of_minutes": 30,
+      "target_time": "2026-11-18T00:40:15.407906+00:00",
+      "selected_snapshot_elapsed_seconds": 1765.549486,
+      "window_end": "2026-11-18T00:39:40.957392Z",
+      "first_kafka_offset": 244297,
+      "last_kafka_offset": 246757,
+      "entity_type_pairs": 2461,
+      "entity_mentions": 3384
+    },
+    {
+      "as_of_minutes": 45,
+      "target_time": "2026-11-18T00:55:15.407906+00:00",
+      "selected_snapshot_elapsed_seconds": 1765.549486,
+      "window_end": "2026-11-18T00:39:40.957392Z",
+      "first_kafka_offset": 244297,
+      "last_kafka_offset": 246757,
+      "entity_type_pairs": 2461,
+      "entity_mentions": 3384
+    },
+    {
+      "as_of_minutes": 60,
+      "target_time": "2026-11-18T01:10:15.407906+00:00",
+      "selected_snapshot_elapsed_seconds": 1765.549486,
+      "window_end": "2026-11-18T00:39:40.957392Z",
+      "first_kafka_offset": 244297,
+      "last_kafka_offset": 246757,
+      "entity_type_pairs": 2461,
+      "entity_mentions": 3384
+    }
+  ],
+  "limitations": [
+    "plots show latest actually published snapshot at or before each interval",
+    "input collection was not continuous for the full hour; repeated snapshots mean no new published state",
+    "run counts include Kafka input already retained before this demo; they are not the cleaned batch-classification counts"
+  ]
+}

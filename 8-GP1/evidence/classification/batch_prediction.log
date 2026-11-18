@@ -1,0 +1,114 @@
+Collecting pandas==2.2.3
+  Downloading pandas-2.2.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.9/89.9 kB 1.9 MB/s eta 0:00:00
+Collecting pyarrow==17.0.0
+  Downloading pyarrow-17.0.0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+Requirement already satisfied: numpy>=1.23.2 in /usr/local/lib/python3.11/site-packages (from pandas==2.2.3) (2.4.6)
+Collecting python-dateutil>=2.8.2 (from pandas==2.2.3)
+  Downloading python_dateutil-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+Collecting pytz>=2020.1 (from pandas==2.2.3)
+  Downloading pytz-2026.6-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.7 (from pandas==2.2.3)
+  Downloading tzdata-2026.6-py2.py3-none-any.whl.metadata (1.4 kB)
+Downloading pandas-2.2.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 9.2 MB/s eta 0:00:00
+Downloading pyarrow-17.0.0-cp311-cp311-manylinux_2_28_x86_64.whl (39.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 39.9/39.9 MB 9.1 MB/s eta 0:00:00
+Downloading python_dateutil-4.0.0-py3-none-any.whl (92 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 92.9/92.9 kB 4.9 MB/s eta 0:00:00
+Downloading pytz-2026.6-py2.py3-none-any.whl (506 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 506.3/506.3 kB 11.3 MB/s eta 0:00:00
+Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 348.2/348.2 kB 10.7 MB/s eta 0:00:00
+Installing collected packages: pytz, tzdata, pyarrow, python-dateutil, pandas
+Successfully installed pandas-2.2.3 pyarrow-17.0.0 python-dateutil-4.0.0 pytz-2026.6 tzdata-2026.6
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+/usr/local/lib/python3.11/site-packages/pyspark/bin/load-spark-env.sh: line 68: ps: command not found
+:: loading settings :: url = jar:file:/usr/local/lib/python3.11/site-packages/pyspark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+Ivy Default Cache set to: /root/.ivy2/cache
+The jars for the packages stored in: /root/.ivy2/jars
+org.apache.spark#spark-sql-kafka-0-10_2.12 added as a dependency
+:: resolving dependencies :: org.apache.spark#spark-submit-parent-fadfa3e5-42c3-4ad7-b103-6f6fbc097181;1.0
+	confs: [default]
+	found org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.3 in central
+	found org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.5.3 in central
+	found org.apache.kafka#kafka-clients;3.4.1 in central
+	found org.lz4#lz4-java;1.8.0 in central
+	found org.xerial.snappy#snappy-java;1.1.10.5 in central
+	found org.slf4j#slf4j-api;2.0.7 in central
+	found org.apache.hadoop#hadoop-client-runtime;3.3.4 in central
+	found org.apache.hadoop#hadoop-client-api;3.3.4 in central
+	found commons-logging#commons-logging;1.1.3 in central
+	found com.google.code.findbugs#jsr305;3.0.0 in central
+	found org.apache.commons#commons-pool2;2.11.1 in central
+:: resolution report :: resolve 1221ms :: artifacts dl 116ms
+	:: modules in use:
+	com.google.code.findbugs#jsr305;3.0.0 from central in [default]
+	commons-logging#commons-logging;1.1.3 from central in [default]
+	org.apache.commons#commons-pool2;2.11.1 from central in [default]
+	org.apache.hadoop#hadoop-client-api;3.3.4 from central in [default]
+	org.apache.hadoop#hadoop-client-runtime;3.3.4 from central in [default]
+	org.apache.kafka#kafka-clients;3.4.1 from central in [default]
+	org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.3 from central in [default]
+	org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.5.3 from central in [default]
+	org.lz4#lz4-java;1.8.0 from central in [default]
+	org.slf4j#slf4j-api;2.0.7 from central in [default]
+	org.xerial.snappy#snappy-java;1.1.10.5 from central in [default]
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   11  |   0   |   0   |   0   ||   11  |   0   |
+	---------------------------------------------------------------------
+:: retrieving :: org.apache.spark#spark-submit-parent-fadfa3e5-42c3-4ad7-b103-6f6fbc097181
+	confs: [default]
+	0 artifacts copied, 11 already retrieved (0kB/37ms)
+26/11/18 05:53:12 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+Raw messages: 4394
+Messages after empty-text removal and text deduplication: 4335
+Predictions per class:
+[Stage 0:>                                                          (0 + 1) / 1]                                                                                [Stage 4:>                                                          (0 + 1) / 1]                                                                                [Stage 12:>                                                         (0 + 1) / 1]                                                                                [Stage 22:>                                                         (0 + 1) / 1]                                                                                [Stage 23:>                                                         (0 + 1) / 1]                                                                                [Stage 27:>                                                         (0 + 1) / 1]                                                                                26/11/18 05:53:43 WARN DAGScheduler: Broadcasting large task binary with size 5.8 MiB
+26/11/18 05:53:43 WARN InstanceBuilder: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+26/11/18 05:53:43 WARN InstanceBuilder: Failed to load implementation from:dev.ludovic.netlib.blas.VectorBLAS
+[Stage 29:>                                                         (0 + 2) / 4][Stage 29:=============================>                            (2 + 2) / 4][Stage 29:===========================================>              (3 + 1) / 4]26/11/18 05:53:45 WARN DAGScheduler: Broadcasting large task binary with size 5.9 MiB
+26/11/18 05:53:45 WARN DAGScheduler: Broadcasting large task binary with size 5.9 MiB
+  World: 524
+  Sports: 667
+  Business: 1351
+  Sci/Tech: 1793
+Example messages per class (predicted probability):
+                                                                                26/11/18 05:53:45 WARN DAGScheduler: Broadcasting large task binary with size 5.8 MiB
+  World:
+    message_id='at://did:plc:nmwytikjtwaclogy76ph2x6w/app.bsky.feed.post/3n2kc3upr222w' confidence=0.361383 text='"Massive geyser of rotting trash" pretty much sums up 2026'
+    message_id='at://did:plc:xb42yk434hdtht6mwqbrfvw6/app.bsky.feed.post/3n2kcal4ksk22' confidence=0.966767 text="'No Child Should Die From the Cold,' Says Jewish Voice for Peace After Gaza Infant's Hypothermia Death www.commondreams.org/news/9-month..."
+    message_id='at://did:plc:3or2vrb74eoljpadz6n6bfkc/app.bsky.feed.post/3n2kcmu4jhs2c' confidence=0.707444 text='/pats spot on ice floe next to me Have a seat, dear. We have orthopedic shoes and hard candies.'
+    message_id='at://did:plc:ku6to2bpo6z5rxrau44g5nrj/app.bsky.feed.post/3n2kbxmekxs2f' confidence=0.674223 text='10,001 Maniacs'
+    message_id='at://did:plc:ownon4dtm737g4lfptcdm5ze/app.bsky.feed.post/3n2kc7ossgk2b' confidence=0.395740 text='200 comments, no upvotes. In the friendliest of territories no less.'
+26/11/18 05:53:46 WARN DAGScheduler: Broadcasting large task binary with size 5.8 MiB
+  Sports:
+    message_id='at://did:plc:kb4gkyc2lm7xkjnmq3l6n5a7/app.bsky.feed.post/3n2kntz27bs2y' confidence=0.643009 text="#NowWatching The Hunting Wives S01 | E02: Knockin' Boots #TheHuntingWives #justsuited"
+    message_id='at://did:plc:pnzbkhc445duxfclgghgrang/app.bsky.feed.post/3n2kcusi7722y' confidence=0.686784 text='#SunsetChat I never expressly stated Lunaris’s hometown in the work and I’ve never done a proper world building session of the city so I feel weird giving it a name but instead I can talk about the layout of “hometown” The town is sprawling, stretched across miles, you have to have a care to get'
+    message_id='at://did:plc:ugyj5xhkvb6v2j43ha7ibbct/app.bsky.feed.post/3n2ko7zwvtc2t' confidence=0.491878 text='#lonche #kicktimeout lionel0808 ⏳ 1m timeout by Lonche (after 1s) "collectiblesFloridaCat collectiblesFloridaCat collectiblesFloridaCat collectiblesFloridaCat collectiblesFloridaCat collectiblesFloridaCat collectiblesFloridaCat collectiblesFloridaCat" kick.com/lonche'
+    message_id='at://did:plc:ugyj5xhkvb6v2j43ha7ibbct/app.bsky.feed.post/3n2kn5aphmp2n' confidence=0.471254 text='#peachyjade #kickban mirageroyalraven51231 🔨 BANNED by Tabbloe (after 4s) "What is good legend, love the setup and the chill vibes 💥" kick.com/peachyjade'
+    message_id='at://did:plc:ios7pumxdyhss42ampklspq5/app.bsky.feed.post/3n2kne56z722z' confidence=0.661388 text="(Note: my only experience with dance is one season of ballet when I was 5 years old before I realized I have the coordination of a drunk baby giraffe, but I'd like to think I can tell good dance from bad dance after so many seasons of DWTS and SYTYCD?)"
+26/11/18 05:53:46 WARN DAGScheduler: Broadcasting large task binary with size 5.8 MiB
+  Business:
+    message_id='at://did:plc:bkixpkc4kxooo5l7tyccl2gd/app.bsky.feed.post/3n2kcuzpre225' confidence=0.310748 text='"Because I\'m _bad_ at this."'
+    message_id='at://did:plc:og6c7qmu7u4a46tf3rg5cl7i/app.bsky.feed.post/3n2ko5neot22k' confidence=0.413523 text='"Maybe" lasted 3 seconds and then I ordered my vinyl.'
+    message_id='at://did:plc:jvyhtlnyarbkotx3uxeq2o5r/app.bsky.feed.post/3n2kbpgsi722p' confidence=0.621055 text='"The frantic push to pass BAAJA — a deregulatory bill to boost the faltering AI sector — is reminiscent of desperate deregulatory legislation from past crises [that] only drove greater risk taking and ultimately failed to prevent a crash. The subsequent bailout cost taxpayers over $120 billion."'
+    message_id='at://did:plc:ugyj5xhkvb6v2j43ha7ibbct/app.bsky.feed.post/3n2kbz4mwge26' confidence=0.462422 text='#3li_boltx #kicktimeout Bishoo_9 ⏳ 1h timeout by 7oka_juschillin (after 15s) "بتصبعلي" kick.com/3li_boltx'
+    message_id='at://did:plc:2ludxwrx7ztc34sdggtyhegn/app.bsky.feed.post/3n2kbvu3rxs23' confidence=0.705233 text='#BirdOfTheDay Theme for Nov 17, 2026: #Brown, any bird with brown in its plumage Brown Thrasher at the Woolsey Wet Prairie in Fayetteville, Arkansas on April 2, 2016 #birds #wildlife'
+26/11/18 05:53:46 WARN DAGScheduler: Broadcasting large task binary with size 5.8 MiB
+  Sci/Tech:
+    message_id='at://did:plc:2ryh2nkbuw5gfy2ephpgatqu/app.bsky.feed.post/3n2kcavxu3k24' confidence=0.914430 text='"Federal Judge Dennis Saylor vacated a proposed Dept.of Homeland Security rule that would have placed an automatic 4-year limit on international student visas. He described the rule as \'arbitrary, capricious, an abuse of discretion and otherwise not in accordance with law" Judiciary in action!'
+    message_id='at://did:plc:oz3dyqv4hqnlpjkjgwjgloan/app.bsky.feed.post/3n2kckpghlc2q' confidence=0.904240 text='"I don’t know if I can actively recommend picking up the DLC right now" www.switchaboo.com/pikmin-4-nin...'
+    message_id='at://did:plc:xuu5r5hnzn7lo5dlnxmrd4x6/app.bsky.feed.post/3n2kcmlpnxc2f' confidence=0.766845 text='"Oh? How interesting... and fascinating. You must be the famous goth vampire girl called Serana, one of the most desirable females in Skyrim." The male said with a soft charming smile as he looked at the female\'s attractive body. [+]'
+    message_id='at://did:plc:cjfsibimo3mpj52yzoxhci5h/app.bsky.feed.post/3n2kcx7annc2h' confidence=0.310006 text='"That otter be \'nuff fer anyone!"'
+    message_id='at://did:plc:xz7fzyy2gt7tgkhwqfkuw4o5/app.bsky.feed.post/3n2ko2lr6oc2d' confidence=0.463909 text='#Aurora #existforlove'
+26/11/18 05:53:46 WARN DAGScheduler: Broadcasting large task binary with size 5.8 MiB
+26/11/18 05:53:46 WARN DAGScheduler: Broadcasting large task binary with size 5.8 MiB
+26/11/18 05:53:46 WARN DAGScheduler: Broadcasting large task binary with size 5.8 MiB
+26/11/18 05:53:47 WARN DAGScheduler: Broadcasting large task binary with size 5.8 MiB
+Wrote 4335 predictions to: outputs/predictions.csv

@@ -1,0 +1,51 @@
+sheet_row,manual_label,predicted_class,is_in_scope,is_correct
+1,None of these,World,False,
+2,None of these,Sci/Tech,False,
+3,World,Business,True,False
+4,Sci/Tech,Sci/Tech,True,True
+5,World,Business,True,False
+6,World,Sci/Tech,True,False
+7,None of these,Business,False,
+8,None of these,Sci/Tech,False,
+9,Business,Sci/Tech,True,False
+10,World,Sci/Tech,True,False
+11,None of these,Sci/Tech,False,
+12,Business,Sci/Tech,True,False
+13,Business,Sci/Tech,True,False
+14,None of these,Sports,False,
+15,None of these,World,False,
+16,None of these,Business,False,
+17,None of these,Sports,False,
+18,None of these,Business,False,
+19,None of these,Business,False,
+20,None of these,World,False,
+21,None of these,Business,False,
+22,Business,Sci/Tech,True,False
+23,Business,World,True,False
+24,None of these,Sci/Tech,False,
+25,Business,Sports,True,False
+26,Business,World,True,False
+27,None of these,Sci/Tech,False,
+28,None of these,World,False,
+29,None of these,World,False,
+30,None of these,Sci/Tech,False,
+31,None of these,Sci/Tech,False,
+32,None of these,Sports,False,
+33,None of these,Business,False,
+34,None of these,Sci/Tech,False,
+35,Sports,Sports,True,True
+36,None of these,Sci/Tech,False,
+37,None of these,Sci/Tech,False,
+38,Business,Sci/Tech,True,False
+39,None of these,Sci/Tech,False,
+40,None of these,World,False,
+41,None of these,Business,False,
+42,None of these,Sci/Tech,False,
+43,None of these,Sci/Tech,False,
+44,None of these,Sci/Tech,False,
+45,None of these,Sci/Tech,False,
+46,None of these,World,False,
+47,None of these,Business,False,
+48,None of these,Business,False,
+49,None of these,Sci/Tech,False,
+50,World,Business,True,False
