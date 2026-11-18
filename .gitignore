@@ -12,10 +12,13 @@ venv/
 outputs/*
 !outputs/.gitkeep
 checkpoints/
-models/
+models/*
+!models/ag_lr/
+models/ag_lr/**/*.crc
 spark-warehouse/
 metastore_db/
 derby.log
 *.parquet
+!models/ag_lr/**/*.parquet
 data/*
 !data/sample/
