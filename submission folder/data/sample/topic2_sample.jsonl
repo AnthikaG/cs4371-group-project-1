@@ -1,0 +1,10 @@
+{"entity": "#", "entity_type": "CARDINAL", "count": 8, "window_end": "2026-11-16T06:40:46.063554Z", "run_id": "tulasi-entities-20261116"}
+{"entity": "#trainwreckstv #", "entity_type": "MONEY", "count": 4, "window_end": "2026-11-16T06:40:46.063554Z", "run_id": "tulasi-entities-20261116"}
+{"entity": "1", "entity_type": "CARDINAL", "count": 4, "window_end": "2026-11-16T06:40:46.063554Z", "run_id": "tulasi-entities-20261116"}
+{"entity": "clean", "entity_type": "ORG", "count": 4, "window_end": "2026-11-16T06:40:46.063554Z", "run_id": "tulasi-entities-20261116"}
+{"entity": "trainwreckstv", "entity_type": "PERSON", "count": 4, "window_end": "2026-11-16T06:40:46.063554Z", "run_id": "tulasi-entities-20261116"}
+{"entity": "medicare", "entity_type": "ORG", "count": 3, "window_end": "2026-11-16T06:40:46.063554Z", "run_id": "tulasi-entities-20261116"}
+{"entity": "0s", "entity_type": "CARDINAL", "count": 2, "window_end": "2026-11-16T06:40:46.063554Z", "run_id": "tulasi-entities-20261116"}
+{"entity": "1s", "entity_type": "CARDINAL", "count": 2, "window_end": "2026-11-16T06:40:46.063554Z", "run_id": "tulasi-entities-20261116"}
+{"entity": "four", "entity_type": "CARDINAL", "count": 2, "window_end": "2026-11-16T06:40:46.063554Z", "run_id": "tulasi-entities-20261116"}
+{"entity": "last week", "entity_type": "DATE", "count": 2, "window_end": "2026-11-16T06:40:46.063554Z", "run_id": "tulasi-entities-20261116"}

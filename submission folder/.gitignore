@@ -1,0 +1,24 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.vscode/
+.idea/
+.DS_Store
+
+# generated data, models, checkpoints
+outputs/*
+!outputs/.gitkeep
+checkpoints/
+models/*
+!models/ag_lr/
+models/ag_lr/**/*.crc
+spark-warehouse/
+metastore_db/
+derby.log
+*.parquet
+!models/ag_lr/**/*.parquet
+data/*
+!data/sample/

@@ -1,0 +1,17 @@
+# ingestion (ashi)
+confluent-kafka==2.6.1
+websocket-client==1.8.0
+requests==2.32.3
+python-dotenv==1.0.1
+
+# spark (tulasi, sristi) - pyspark version must match KAFKA_CONNECTOR_PACKAGE in src/common/spark_utils.py
+pyspark==3.5.3
+
+# tests
+pytest==8.3.3
+
+# named entity recognition (tulasi)
+spacy==3.8.2
+typer==0.12.5
+click==8.1.7
+en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl

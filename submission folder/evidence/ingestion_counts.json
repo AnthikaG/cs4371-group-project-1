@@ -1,0 +1,17 @@
+{
+  "files": [
+    "outputs/topic1_capture.jsonl"
+  ],
+  "raw_messages": 3000,
+  "invalid_messages": 0,
+  "empty_text_messages": 0,
+  "duplicate_message_ids": 0,
+  "duplicate_texts": 42,
+  "cleaned_messages": 2958,
+  "by_source": {
+    "bluesky_jetstream": 2958
+  },
+  "first_event_time": "2026-11-13T18:09:49.563189Z",
+  "last_event_time": "2026-11-13T18:17:24.662612Z",
+  "meets_1000_requirement": true
+}
